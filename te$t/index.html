@@ -1,27 +1,94 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Страница /te$t</title>
-  <!-- Mobile-friendly scaling -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-    }
-    h1, p {
-      padding: 0 1rem;
-    }
-
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poster Store at te$t</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Страница "te$t"</h1>
-  <p>Это отдельная страница с кириллицей в пути.</p>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
-<!-- Elfsight Form Builder | Forms: Signature (WIDGETS-1927) 2 -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-98d6db01-8ebc-4b99-bbb1-fb05215b1b3b" data-elfsight-app-lazy></div>
+  <div class="w-full max-w-sm sm:max-w-md bg-white rounded-2xl shadow-xl overflow-hidden">
+    <img id="product-image" 
+         src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F53%2F94%2Ff4iazC.jpg&f=1&nofb=1&ipt=9e6300035d8520b5f1435161866e8a63493afce00cde75179ee46c2949dd1c7a" 
+         alt="Red Poster" 
+         class="w-full h-48 sm:h-64 object-cover" />
+
+    <div class="p-4 sm:p-6 space-y-4">
+      <h2 id="product-name" class="text-lg sm:text-xl font-semibold">Red Poster</h2>
+      <p id="product-description" class="text-gray-600 text-sm sm:text-base">
+        Energizing poster of flame sparks.
+      </p>
+      <p id="product-price" class="text-lg sm:text-xl font-bold">$10</p>
+
+      <!-- Buttons stack on mobile, side-by-side on larger screens -->
+      <div class="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">
+        <button id="red-btn" 
+                class="flex-1 py-2 rounded-lg bg-red-500 text-white font-medium">
+          Red
+        </button>
+        <button id="blue-btn" 
+                class="flex-1 py-2 rounded-lg border border-gray-400 text-gray-700 font-medium">
+          Blue
+        </button>
+      </div>
+
+      <button class="w-full py-2 bg-black text-white rounded-lg font-semibold">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const variants = {
+      red: {
+        name: "Red Poster",
+        price: 10,
+        description: "Energizing poster of flame sparks.",
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F53%2F94%2Ff4iazC.jpg&f=1&nofb=1&ipt=9e6300035d8520b5f1435161866e8a63493afce00cde75179ee46c2949dd1c7a",
+      },
+      blue: {
+        name: "Blue Poster",
+        price: 20,
+        description: "Soothing poster of water bubbles.",
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wikimg.net%2Fen%2Fhkwiki%2Fimages%2Fthumb%2Ff%2Ffe%2FMenu_Theme_Lifeblood.png%2F640px-Menu_Theme_Lifeblood.png&f=1&nofb=1&ipt=1fe1fbedd7c72e084dc66caeab1a91368ebfe9e7ee8d036c5c3c66f6b567846c",
+      },
+    };
+
+    const productName = document.getElementById("product-name");
+    const productDesc = document.getElementById("product-description");
+    const productPrice = document.getElementById("product-price");
+    const productImage = document.getElementById("product-image");
+
+    const redBtn = document.getElementById("red-btn");
+    const blueBtn = document.getElementById("blue-btn");
+
+    function updateProduct(variant) {
+      const p = variants[variant];
+      productName.textContent = p.name;
+      productDesc.textContent = p.description;
+      productPrice.textContent = `$${p.price}`;
+      productImage.src = p.image;
+      productImage.alt = p.name;
+
+      // Button styling
+      if (variant === "red") {
+        redBtn.classList.add("bg-red-500", "text-white");
+        redBtn.classList.remove("border", "border-gray-400", "text-gray-700");
+
+        blueBtn.classList.remove("bg-blue-500", "text-white");
+        blueBtn.classList.add("border", "border-gray-400", "text-gray-700");
+      } else {
+        blueBtn.classList.add("bg-blue-500", "text-white");
+        blueBtn.classList.remove("border", "border-gray-400", "text-gray-700");
+
+        redBtn.classList.remove("bg-red-500", "text-white");
+        redBtn.classList.add("border", "border-gray-400", "text-gray-700");
+      }
+    }
+
+    redBtn.addEventListener("click", () => updateProduct("red"));
+    blueBtn.addEventListener("click", () => updateProduct("blue"));
+  </script>
 </body>
 </html>
