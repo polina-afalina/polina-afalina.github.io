@@ -1,27 +1,350 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Страница /тест</title>
-  <!-- Mobile-friendly scaling -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Салон красоты «Лотос» — Запись онлайн</title>
+  <meta name="description" content="Одностраничный адаптивный сайт салона красоты: услуги, прайс, новости и форма записи с выбором телефонного кода страны.">
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-    }
-    h1, p {
-      padding: 0 1rem;
-    }
-
+    :root{--accent:#b469ff;--muted:#666;--bg:#fbfbfd;--card:#fff;--max:1100px}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, Arial, sans-serif;line-height:1.45;color:#111;background:var(--bg);margin:0}
+    .container{max-width:var(--max);margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),#ff9ab0);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    nav{display:flex;gap:12px}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;margin:18px 0}
+    .hero-card{background:var(--card);padding:24px;border-radius:14px;box-shadow:0 6px 20px rgba(18,18,18,0.06)}
+    h1{font-size:28px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 16px}
+    /* form */
+    form .row{display:flex;gap:12px;margin-bottom:12px}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type=text],input[type=email],input[type=date],input[type=time],select,textarea{width:100%;padding:10px 12px;border:1px solid #e6e6ee;border-radius:8px;font-size:15px}
+    select.phone-select{max-width:220px}
+    .phone-row{display:flex;gap:8px}
+    .btn{background:var(--accent);color:#fff;padding:12px 16px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+    .service-card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(12,12,12,0.04)}
+    .news{margin:18px 0}
+    .news-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    footer{border-top:1px solid #eee;padding:18px 0;margin-top:18px;color:var(--muted)}
+    /* responsive */
+    @media (max-width:1000px){.hero{grid-template-columns:1fr 360px}}
+    @media (max-width:880px){nav{display:none}.hero{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}.news-grid{grid-template-columns:1fr}}
+    @media (max-width:520px){.services{grid-template-columns:1fr}.hero-card{padding:16px}.logo{width:48px;height:48px}}
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f6f3ff;color:#4b2a6f;font-weight:700;font-size:13px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:520px){.grid-2{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <h1>Страница "тест"</h1>
-  <p>Это отдельная страница с кириллицей в пути.</p>
-
-<!-- Elfsight Form Builder | Untitled Form Builder 15 -->
+  <!-- Elfsight Website Translator | WT: prod -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-3e01f5a2-572a-49a7-9d8e-d6f46272d027" data-elfsight-app-lazy></div>
+<div class="elfsight-app-0bd57e1c-e051-44dd-bd5a-bfce05dbb88d" data-elfsight-app-lazy></div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">ЛО</div>
+        <div>
+          <div style="font-weight:800">Салон «Лотос»</div>
+          <div class="muted" style="font-size:13px">Красота и уход рядом с вами</div>
+        </div>
+      </div>
+      <nav aria-label="Главное меню">
+        <a href="#services">Услуги</a>
+        <a href="#prices">Прайс</a>
+        <a href="#news">Новости</a>
+        <a href="#booking">Запись</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="hero-card">
+          <h1>Добро пожаловать в салон «Лотос»</h1>
+          <p class="lead">Мы предлагаем профессиональные услуги по уходу за волосами, лицом и телом. Комфорт, безопасность и индивидуальный подход — наш приоритет.</p>
+          <div class="grid-2">
+            <div>
+              <h3>Почему выбирают нас</h3>
+              <ul>
+                <li>Опытные мастера с профильным образованием</li>
+                <li>Качественные материалы и проверенные бренды</li>
+                <li>Удобная запись онлайн и напоминания</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Наши ценности</h3>
+              <p class="muted">Эстетика, забота и прозрачность — услуги с понятной ценой и описанием процедур.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card" id="booking" aria-labelledby="booking-title">
+        <h2 id="booking-title">Записаться сейчас</h2>
+        <form id="bookingForm" novalidate>
+          <div class="row">
+            <div style="flex:1">
+              <label for="fullname">ФИО</label>
+              <input id="fullname" name="fullname" type="text" placeholder="Иванова Мария" required>
+            </div>
+          </div>
+
+          <div class="row phone-row">
+            <div>
+              <label for="countryCode">Код страны</label>
+              <select id="countryCode" class="phone-select" name="countryCode" aria-label="Код страны">
+                <!-- Много опций с телефонными кодами и названиями стран -->
+                <option value="+1">+1 — United States</option>
+                <option value="+7">+7 — Russia</option>
+                <option value="+44">+44 — United Kingdom</option>
+                <option value="+33">+33 — France</option>
+                <option value="+49">+49 — Germany</option>
+                <option value="+39">+39 — Italy</option>
+                <option value="+34">+34 — Spain</option>
+                <option value="+81">+81 — Japan</option>
+                <option value="+86">+86 — China</option>
+                <option value="+91">+91 — India</option>
+                <option value="+61">+61 — Australia</option>
+                <option value="+380">+380 — Ukraine</option>
+                <option value="+48">+48 — Poland</option>
+                <option value="+420">+420 — Czech Republic</option>
+                <option value="+46">+46 — Sweden</option>
+                <option value="+47">+47 — Norway</option>
+                <option value="+41">+41 — Switzerland</option>
+                <option value="+31">+31 — Netherlands</option>
+                <option value="+351">+351 — Portugal</option>
+                <option value="+64">+64 — New Zealand</option>
+                <option value="+54">+54 — Argentina</option>
+                <option value="+55">+55 — Brazil</option>
+                <option value="+27">+27 — South Africa</option>
+                <option value="+82">+82 — South Korea</option>
+                <option value="+420">+420 — Czechia</option>
+                <option value="+372">+372 — Estonia</option>
+                <option value="+371">+371 — Latvia</option>
+                <option value="+370">+370 — Lithuania</option>
+                <option value="+358">+358 — Finland</option>
+                <option value="+351">+351 — Portugal</option>
+                <option value="+36">+36 — Hungary</option>
+                <option value="+90">+90 — Turkey</option>
+                <option value="+966">+966 — Saudi Arabia</option>
+                <option value="+971">+971 — United Arab Emirates</option>
+                <option value="+970">+970 — Palestine</option>
+                <option value="+974">+974 — Qatar</option>
+                <option value="+380">+380 — Украина (повтор для удобства)</option>
+                <option value="+373">+373 — Moldova</option>
+                <option value="+995">+995 — Georgia</option>
+                <option value="+374">+374 — Armenia</option>
+                <option value="+992">+992 — Tajikistan</option>
+                <option value="+998">+998 — Uzbekistan</option>
+                <option value="+992">+992 — Таджикистан (повтор)</option>
+                <option value="+7">+7 — Kazakhstan</option>
+                <option value="+970">+970 — Palestine (повтор)</option>
+                <option value="+52">+52 — Mexico</option>
+                <option value="+503">+503 — El Salvador</option>
+                <option value="+569">+56 — Chile</option>
+                <option value="+57">+57 — Colombia</option>
+                <option value="+60">+60 — Malaysia</option>
+                <option value="+66">+66 — Thailand</option>
+                <option value="+63">+63 — Philippines</option>
+              </select>
+            </div>
+            <div style="flex:1">
+              <label for="phone">Телефон</label>
+              <input id="phone" name="phone" type="text" placeholder="71234567890" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label for="email">E‑mail</label>
+              <input id="email" name="email" type="email" placeholder="ya@example.com">
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label for="service">Услуга</label>
+              <select id="service" name="service">
+                <option>Стрижка женская</option>
+                <option>Стрижка мужская</option>
+                <option>Окрашивание</option>
+                <option>Укладка</option>
+                <option>Маникюр</option>
+                <option>Педикюр</option>
+                <option>Косметология (уход за лицом)</option>
+                <option>Массаж</option>
+                <option>Депиляция</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label for="date">Дата</label>
+              <input id="date" name="date" type="date">
+            </div>
+            <div style="flex:1">
+              <label for="time">Время</label>
+              <input id="time" name="time" type="time">
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label for="notes">Комментарий</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Аллергии, пожелания к мастеру"></textarea>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px;align-items:center;justify-content:space-between">
+            <button class="btn" type="submit">Отправить запись</button>
+            <div class="muted" style="font-size:13px">Мы перезвоним для подтверждения</div>
+          </div>
+
+          <div id="formMessage" role="status" aria-live="polite" style="margin-top:12px;color:green;display:none"></div>
+        </form>
+      </aside>
+    </section>
+
+    <section id="services">
+      <h2>Услуги</h2>
+      <p class="muted">Полный перечень услуг и подробные описания — чтобы вы могли выбрать лучшее.</p>
+      <div class="services">
+        <article class="service-card" aria-labelledby="s1">
+          <h3 id="s1">Парикмахерские услуги</h3>
+          <h4>Стрижки</h4>
+          <p>Женские, мужские и детские стрижки с учётом формы лица и текстуры волос. Консультация по поддержанию формы между посещениями.</p>
+          <h4>Окрашивание и тонирование</h4>
+          <p>Тонирование, мелирование, балаяж, стойкое окрашивание профессиональными средствами последнего поколения.</p>
+        </article>
+
+        <article class="service-card" aria-labelledby="s2">
+          <h3 id="s2">Уход за руками и ногами</h3>
+          <h4>Маникюр</h4>
+          <p>Классический и аппаратный маникюр, покрытие гель-лаком, долговременный дизайн.</p>
+          <h4>Педикюр</h4>
+          <p>Профессиональный уход, удаление натоптышей, SPA-процедуры для стоп.</p>
+        </article>
+
+        <article class="service-card" aria-labelledby="s3">
+          <h3 id="s3">Косметологические процедуры</h3>
+          <h4>Уходовые программы</h4>
+          <p>Чистка лица, пилинги, кислородные процедуры, профессиональные маски для восстановления кожи.</p>
+          <h4>Инъекционные и аппаратные методы</h4>
+          <p>Консультация врачей-косметологов, безопасные методики, рекомендованные по результатам диагностики.</p>
+        </article>
+
+        <article class="service-card" aria-labelledby="s4">
+          <h3 id="s4">SPA и массаж</h3>
+          <h4>Расслабляющий массаж</h4>
+          <p>Терапевтические и релаксирующие техники для снятия усталости и мышечного напряжения.</p>
+          <h4>Тело и уход</h4>
+          <p>Пилинги для тела, обертывания и уходовые программы для улучшения рельефа кожи.</p>
+        </article>
+
+        <article class="service-card" aria-labelledby="s5">
+          <h3 id="s5">Свадебные и праздничные образы</h3>
+          <h4>Полный образ</h4>
+          <p>Прическа, макияж, маникюр — проработка образа с репетицией перед мероприятием.</p>
+        </article>
+
+        <article class="service-card" aria-labelledby="s6">
+          <h3 id="s6">Специальные программы</h3>
+          <h4>Программы лояльности</h4>
+          <p>Скидки и бонусы постоянным клиентам, подарочные сертификаты и пакетные предложения.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="prices">
+      <h2>Прайс</h2>
+      <p class="muted">Упрощённый прайс — ориентировочные цены. Точная стоимость по результатам консультации.</p>
+      <div class="hero-card" style="margin-top:12px">
+        <h3>Основные позиции</h3>
+        <ul>
+          <li>Женская стрижка — от 1500 ₽</li>
+          <li>Окрашивание (корни) — от 2500 ₽</li>
+          <li>Маникюр классический — от 900 ₽</li>
+          <li>Педикюр — от 1200 ₽</li>
+          <li>Чистка лица — от 2000 ₽</li>
+          <li>Массаж (30 мин) — от 1000 ₽</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="news" class="news">
+      <h2>Новости</h2>
+      <p class="muted">Актуальные события салона, акции и полезные советы по уходу.</p>
+      <div class="news-grid">
+        <article style="background:var(--card);padding:12px;border-radius:10px">
+          <h3>Весенние скидки на окрашивание</h3>
+          <p class="muted">С 1 по 30 апреля действует скидка 15% на любое окрашивание при записи онлайн. Подробности у администратора.</p>
+          <p>В акции участвуют все типы окрашиваний, включая сложные техники — балаяж и омбре. Мы используем деликатные красители и восстанавливающие уходы после процедуры.</p>
+        </article>
+
+        <article style="background:var(--card);padding:12px;border-radius:10px">
+          <h3>Новый мастер маникюра</h3>
+          <p class="muted">Поздравляем нашу команду — к нам присоединилась Екатерина, мастер с 8-летним опытом.</p>
+          <p>Екатерина специализируется на художественных техниках и быстром аппаратном маникюре. Запись доступна в разделе «Запись».</p>
+        </article>
+
+        <article style="background:var(--card);padding:12px;border-radius:10px">
+          <h3>Советы по уходу за волосами летом</h3>
+          <p class="muted">Как сохранить цвет и здоровье волос в жару: солнцезащитные средства, маски и частота мытья.</p>
+          <p>Используйте лёгкие несмываемые спреи с УФ-фильтрами, ограничьте горячую укладку и делайте увлажняющие процедуры раз в 2–3 недели.</p>
+        </article>
+
+        <article style="background:var(--card);padding:12px;border-radius:10px">
+          <h3>Блог: 5 минут для красоты</h3>
+          <p class="muted">Короткие ритуалы, которые реально работают — утренние и вечерние практики ухода за кожей.</p>
+          <p>Регулярность важнее дорогих средств: очищение, лёгкое увлажнение, SPF днем — базовый набор для здоровой кожи.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong>Салон «Лотос»</strong><br>
+          <span class="muted">ул. Прекрасная, 12 — Ежедневно с 10:00 до 21:00</span>
+        </div>
+        <div class="muted">Телефон: +7 123 456‑78‑90 • Email: info@lotos.example</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Простая валидация формы и имитация отправки
+    const form = document.getElementById('bookingForm');
+    const message = document.getElementById('formMessage');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      message.style.display='none';
+      const fullname = form.fullname.value.trim();
+      const phone = form.phone.value.trim();
+      if(!fullname){
+        showMessage('Пожалуйста, укажите ФИО', true);
+        return;
+      }
+      if(!phone || phone.length < 6){
+        showMessage('Пожалуйста, укажите корректный телефон', true);
+        return;
+      }
+      // Имитация успешной отправки
+      showMessage('Спасибо! Ваша заявка успешно отправлена. Мы перезвоним для подтверждения.');
+      form.reset();
+    });
+    function showMessage(text, isError){
+      message.textContent = text;
+      message.style.color = isError ? '#b00020' : 'green';
+      message.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
