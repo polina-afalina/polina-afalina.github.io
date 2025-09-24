@@ -3,11 +3,205 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тестовая страничка</title>
-  <body>
-    <!-- Elfsight Form Builder | Untitled Form Builder 7 -->
+  <title>Салон красоты</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      background: #d63384;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #f8f9fa;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      color: #d63384;
+    }
+    form {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fdfdfd;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background: #d63384;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #a61e5c;
+    }
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+      width: 100%;
+      margin-bottom: 10px;
+      font-family: sans-serif;
+    }
+    .dropdown button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      text-align: left;
+      cursor: pointer;
+    }
+    .dropdown button:after {
+      content: "▼";
+      float: right;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      width: 100%;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      background: #fff;
+      z-index: 100;
+    }
+    .dropdown-content input {
+      width: 95%;
+      padding: 5px;
+      margin: 5px;
+      border: 1px solid #ccc;
+    }
+    .dropdown-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .dropdown-content li {
+      padding: 8px 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+    .dropdown-content li:hover {
+      background: #f0f0f0;
+    }
+    .flag {
+      margin-right: 8px;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Elfsight Website Translator | TEST API Copy -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-4bdd5030-6195-44f7-b37b-8455c1ddda5e" data-elfsight-app-lazy></div>
-    
-  </body>
+<div class="elfsight-app-becc3f6a-a78d-4dce-ac75-34fd3d0e6940" data-elfsight-app-lazy></div>
+  <header>
+    <h1>Салон красоты «Прекрасная жизнь»</h1>
+  </header>
+  <nav>
+    <a href="#services">Услуги</a>
+    <a href="#news">Новости</a>
+    <a href="#contact">Запись</a>
+  </nav>
+  <div class="container">
+    <section id="services">
+      <h2>Наши услуги</h2>
+      <p>Мы предлагаем широкий спектр услуг: парикмахерские услуги, маникюр и педикюр, уход за лицом и телом, спа-процедуры и многое другое.</p>
+      <p><strong>Парикмахерские услуги:</strong> стильные стрижки, окрашивание, укладки для любого случая.</p>
+      <p><strong>Маникюр и педикюр:</strong> классический, аппаратный, покрытие гель-лаком, дизайн ногтей.</p>
+      <p><strong>Косметология:</strong> уходовые процедуры, массажи, пилинги, омолаживающие программы.</p>
+      <p><strong>Спа:</strong> релаксирующие программы, арома-массажи и обертывания.</p>
+    </section>
+
+    <section id="news">
+      <h2>Новости</h2>
+      <p><em>15 сентября:</em> Открытие нового зала для спа-процедур с современным оборудованием.</p>
+      <p><em>1 октября:</em> Скидка 20% на окрашивание волос для новых клиентов.</p>
+      <p><em>10 октября:</em> Бесплатная консультация косметолога при записи на процедуру ухода за лицом.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Запишитесь к нам</h2>
+      <form>
+        <input type="text" placeholder="Ваше имя" required>
+        <div class="dropdown">
+          <button id="selected">🇮🇹 Italy (+39)</button>
+          <div class="dropdown-content" id="dropdown">
+            <input type="text" id="search" placeholder="Поиск...">
+            <ul id="country-list">
+              <li data-code="+33">🇫🇷 France <span>+33</span></li>
+              <li data-code="+44">🇬🇧 United Kingdom <span>+44</span></li>
+              <li data-code="+39">🇮🇹 Italy <span>+39</span></li>
+              <li data-code="+49">🇩🇪 Germany <span>+49</span></li>
+              <li data-code="+1">🇺🇸 USA <span>+1</span></li>
+              <li data-code="+7">🇷🇺 Russia <span>+7</span></li>
+            </ul>
+          </div>
+        </div>
+        <input type="tel" placeholder="Номер телефона" required>
+        <button type="submit">Отправить</button>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    const dropdownBtn = document.getElementById("selected");
+    const dropdown = document.getElementById("dropdown");
+    const searchInput = document.getElementById("search");
+    const items = document.querySelectorAll("#country-list li");
+
+    dropdownBtn.addEventListener("click", () => {
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        dropdownBtn.textContent = item.textContent;
+        dropdown.style.display = "none";
+      });
+    });
+
+    searchInput.addEventListener("input", () => {
+      const filter = searchInput.value.toLowerCase();
+      items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(filter) ? "flex" : "none";
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".dropdown")) {
+        dropdown.style.display = "none";
+      }
+    });
+  </script>
+</body>
 </html>
