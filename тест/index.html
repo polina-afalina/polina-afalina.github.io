@@ -59,6 +59,7 @@
     button:hover {
       background: #a61e5c;
     }
+
     /* Dropdown */
     .dropdown {
       position: relative;
@@ -111,6 +112,18 @@
     .flag {
       margin-right: 8px;
     }
+
+    /* Контейнер для календаря */
+    .calendar-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+
     /* Responsive */
     @media (max-width: 600px) {
       nav a {
@@ -124,11 +137,13 @@
   <header>
     <h1>Салон красоты «Прекрасная жизнь»</h1>
   </header>
+
   <nav>
     <a href="#services">Услуги</a>
     <a href="#news">Новости</a>
     <a href="#contact">Запись</a>
   </nav>
+
   <div class="container">
     <section id="services">
       <h2>Наши услуги</h2>
@@ -140,11 +155,18 @@
     </section>
 
     <section id="news">
-      <h2>Новости</h2>
+      <h2>Новости (flex-container) </h2>
       <p><em>15 сентября:</em> Открытие нового зала для спа-процедур с современным оборудованием.</p>
       <p><em>1 октября:</em> Скидка 20% на окрашивание волос для новых клиентов.</p>
       <p><em>10 октября:</em> Бесплатная консультация косметолога при записи на процедуру ухода за лицом.</p>
     </section>
+
+    <!-- Контейнер с календарем -->
+    <div class="calendar-flex">
+<!-- Elfsight Event Calendar | EC: Grid (WIDGETS-3988) Copy -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-4685b8b5-b898-4da3-aabb-d2c2cc3a4b75" data-elfsight-app-lazy></div>
+    </div>
 
     <section id="contact">
       <h2>Запишитесь к нам</h2>
@@ -200,8 +222,12 @@
       }
     });
   </script>
+
+  <footer>
+    <!-- Elfsight Event Calendar | EC: Grid (WIDGETS-3988) Copy -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-4685b8b5-b898-4da3-aabb-d2c2cc3a4b75" data-elfsight-app-lazy></div>
+  </footer>
 </body>
-    <footer>
-    
-    </footer>
 </html>
+
