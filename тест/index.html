@@ -116,13 +116,23 @@
       div:empty {
     display: none;
   }
-footer {
-  display: flex;
-  flex-direction: column;
-  width: 350px;        /* мобильная ширина */
-  max-height: 400px;   /* важно — ограничиваем высоту */
-  overflow: auto;      /* позволяет увидеть, что что-то «дергается»*/
-  border: 2px solid red;
+@external {
+  #root, footer {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  [class*="Preview__Container-sc"] {
+    display: revert;
+    justify-content: revert;
+    align-items: revert;
+    min-height: revert;
+    width: revert;
+    padding: revert;
+    box-sizing: revert;
+    background: revert;
+  }
+  
 }
 
     /* Responsive */
