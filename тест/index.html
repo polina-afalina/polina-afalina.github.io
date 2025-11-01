@@ -116,11 +116,13 @@
       div:empty {
     display: none;
   }
-@external {
-  footer {
-    display: flex;
-    width: 350px;
-  }
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 350px;        /* мобильная ширина */
+  max-height: 400px;   /* важно — ограничиваем высоту */
+  overflow: auto;      /* позволяет увидеть, что что-то «дергается»*/
+  border: 2px solid red;
 }
 
     /* Responsive */
