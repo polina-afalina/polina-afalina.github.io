@@ -113,11 +113,19 @@
       margin-right: 8px;
     }
 
-    footer {
-  display: flex;          /* Превращаем футер в flex-контейнер */
-  flex-direction: column; /* Чтобы виджет выстраивался вертикально */
-  width: 350px;           /* Имитируем "мобильную" ширину */
-  border: 2px solid red;  /* Чтобы визуально видеть границы контейнера */
+footer {
+  display: flex;             /* сайт-билдер выстраивает блоки в строку */
+  flex-direction: row;       /* или column – поведение тоже ломается */
+  flex-wrap: nowrap;         /* запрещаем переносы — важно */
+  justify-content: center;   /* типично для футеров */
+  align-items: stretch;      /* или center */
+  gap: 0;
+  
+  width: 100%;               /* ширина страницы */
+  max-width: 480px;          /* имитация мобильного контейнера */
+  min-height: 200px;         /* нет фиксированной высоты → растяжение → resize */
+  box-sizing: border-box;
+  overflow: auto;            /* важно — scrollbar триггерит релоуд размерности */
 }
 
     /* Responsive */
