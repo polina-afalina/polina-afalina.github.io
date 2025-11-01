@@ -113,20 +113,6 @@
       margin-right: 8px;
     }
 
-footer {
-  display: flex;             /* сайт-билдер выстраивает блоки в строку */
-  flex-direction: row;       /* или column – поведение тоже ломается */
-  flex-wrap: nowrap;         /* запрещаем переносы — важно */
-  justify-content: center;   /* типично для футеров */
-  align-items: stretch;      /* или center */
-  gap: 0;
-  
-  width: 100%;               /* ширина страницы */
-  max-width: 480px;          /* имитация мобильного контейнера */
-  min-height: 200px;         /* нет фиксированной высоты → растяжение → resize */
-  box-sizing: border-box;
-  overflow: auto;            /* важно — scrollbar триггерит релоуд размерности */
-}
 
     /* Responsive */
     @media (max-width: 600px) {
@@ -165,10 +151,6 @@ footer {
       <p><em>1 октября:</em> Скидка 20% на окрашивание волос для новых клиентов.</p>
       <p><em>10 октября:</em> Бесплатная консультация косметолога при записи на процедуру ухода за лицом.</p>
     </section>
-
-    <!-- Контейнер с календарем -->
-    <div class="calendar-flex">
-    </div>
 
     <section id="contact">
       <h2>Запишитесь к нам</h2>
@@ -226,10 +208,8 @@ footer {
   </script>
 
   <footer>
-
-<!-- Elfsight Timeline | Timeline: Flex Container Fixed (WIDGETS-3947) -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-dc8d2281-f493-47fe-a167-deb7cd119dbe" data-elfsight-app-lazy></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.10/iframeResizer.min.js"></script>
+<iframe onload="iFrameResize(this)" src="https://d99042974861427fa529da7957da1952.elf.site" style="border:none;width:100%;"></iframe>
 
   </footer>
 </body>
