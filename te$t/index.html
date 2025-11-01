@@ -1,93 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Poster Store at te$t</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Салон красоты COPY</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: normal;
+    }
+    header {
+      background: #d63384;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #f8f9fa;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      color: #d63384;
+    }
+    form {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fdfdfd;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background: #d63384;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #a61e5c;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+      width: 100%;
+      margin-bottom: 10px;
+      font-family: sans-serif;
+    }
+    .dropdown button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      text-align: left;
+      cursor: pointer;
+    }
+    .dropdown button:after {
+      content: "▼";
+      float: right;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      width: 100%;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      background: #fff;
+      z-index: 100;
+    }
+    .dropdown-content input {
+      width: 95%;
+      padding: 5px;
+      margin: 5px;
+      border: 1px solid #ccc;
+    }
+    .dropdown-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .dropdown-content li {
+      padding: 8px 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+    .dropdown-content li:hover {
+      background: #f0f0f0;
+    }
+    .flag {
+      margin-right: 8px;
+    }
+
+footer {
+  display: flex;             /* сайт-билдер выстраивает блоки в строку */
+  flex-direction: row;       /* или column – поведение тоже ломается */
+  flex-wrap: nowrap;         /* запрещаем переносы — важно */
+  justify-content: center;   /* типично для футеров */
+  align-items: stretch;      /* или center */
+  gap: 0;
+  
+  width: 100%;               /* ширина страницы */
+  max-width: 480px;          /* имитация мобильного контейнера */
+  min-height: 200px;         /* нет фиксированной высоты → растяжение → resize */
+  box-sizing: border-box;
+  overflow: auto;            /* важно — scrollbar триггерит релоуд размерности */
+}
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+    }
+  </style>
+
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-  <div class="w-full max-w-sm sm:max-w-md bg-white rounded-2xl shadow-xl overflow-hidden">
-    <img id="product-image" 
-         src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F53%2F94%2Ff4iazC.jpg&f=1&nofb=1&ipt=9e6300035d8520b5f1435161866e8a63493afce00cde75179ee46c2949dd1c7a" 
-         alt="Red Poster" 
-         class="w-full h-48 sm:h-64 object-cover" />
+<body>
+  <header>
+    <h1>Салон красоты «Прекрасная жизнь»</h1>
+  </header>
 
-    <div class="p-4 sm:p-6 space-y-4">
-      <h2 id="product-name" class="text-lg sm:text-xl font-semibold">Red Poster</h2>
-      <p id="product-description" class="text-gray-600 text-sm sm:text-base">
-        Energizing poster of flame sparks.
-      </p>
-      <p id="product-price" class="text-lg sm:text-xl font-bold">$10</p>
+  <nav>
+    <a href="#services">Услуги</a>
+    <a href="#news">Новости</a>
+    <a href="#contact">Запись</a>
+  </nav>
 
-      <!-- Buttons stack on mobile, side-by-side on larger screens -->
-      <div class="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">
-        <button id="red-btn" 
-                class="flex-1 py-2 rounded-lg bg-red-500 text-white font-medium">
-          Red
-        </button>
-        <button id="blue-btn" 
-                class="flex-1 py-2 rounded-lg border border-gray-400 text-gray-700 font-medium">
-          Blue
-        </button>
-      </div>
+  <div class="container">
+    <section id="services">
+      <h2>Наши услуги</h2>
+      <p>Мы предлагаем широкий спектр услуг: парикмахерские услуги, маникюр и педикюр, уход за лицом и телом, спа-процедуры и многое другое.</p>
+      <p><strong>Парикмахерские услуги:</strong> стильные стрижки, окрашивание, укладки для любого случая.</p>
+      <p><strong>Маникюр и педикюр:</strong> классический, аппаратный, покрытие гель-лаком, дизайн ногтей.</p>
+      <p><strong>Косметология:</strong> уходовые процедуры, массажи, пилинги, омолаживающие программы.</p>
+      <p><strong>Спа:</strong> релаксирующие программы, арома-массажи и обертывания.</p>
+    </section>
 
-      <button class="w-full py-2 bg-black text-white rounded-lg font-semibold">
-        Add to Cart
-      </button>
+    <section id="news">
+      <h2>Новости (flex-container) </h2>
+      <p><em>15 сентября:</em> Открытие нового зала для спа-процедур с современным оборудованием.</p>
+      <p><em>1 октября:</em> Скидка 20% на окрашивание волос для новых клиентов.</p>
+      <p><em>10 октября:</em> Бесплатная консультация косметолога при записи на процедуру ухода за лицом.</p>
+    </section>
+
+    <!-- Контейнер с календарем -->
+    <div class="calendar-flex">
     </div>
+
+    <section id="contact">
+      <h2>Запишитесь к нам</h2>
+      <form>
+        <input type="text" placeholder="Ваше имя" required>
+        <div class="dropdown">
+          <button id="selected">🇮🇹 Italy (+39)</button>
+          <div class="dropdown-content" id="dropdown">
+            <input type="text" id="search" placeholder="Поиск...">
+            <ul id="country-list">
+              <li data-code="+33">🇫🇷 France <span>+33</span></li>
+              <li data-code="+44">🇬🇧 United Kingdom <span>+44</span></li>
+              <li data-code="+39">🇮🇹 Italy <span>+39</span></li>
+              <li data-code="+49">🇩🇪 Germany <span>+49</span></li>
+              <li data-code="+1">🇺🇸 USA <span>+1</span></li>
+              <li data-code="+7">🇷🇺 Russia <span>+7</span></li>
+            </ul>
+          </div>
+        </div>
+        <input type="tel" placeholder="Номер телефона" required>
+        <button type="submit">Отправить</button>
+      </form>
+    </section>
   </div>
 
   <script>
-    const variants = {
-      red: {
-        name: "Red Poster",
-        price: 10,
-        description: "Energizing poster of flame sparks.",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F53%2F94%2Ff4iazC.jpg&f=1&nofb=1&ipt=9e6300035d8520b5f1435161866e8a63493afce00cde75179ee46c2949dd1c7a",
-      },
-      blue: {
-        name: "Blue Poster",
-        price: 20,
-        description: "Soothing poster of water bubbles.",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wikimg.net%2Fen%2Fhkwiki%2Fimages%2Fthumb%2Ff%2Ffe%2FMenu_Theme_Lifeblood.png%2F640px-Menu_Theme_Lifeblood.png&f=1&nofb=1&ipt=1fe1fbedd7c72e084dc66caeab1a91368ebfe9e7ee8d036c5c3c66f6b567846c",
-      },
-    };
+    const dropdownBtn = document.getElementById("selected");
+    const dropdown = document.getElementById("dropdown");
+    const searchInput = document.getElementById("search");
+    const items = document.querySelectorAll("#country-list li");
 
-    const productName = document.getElementById("product-name");
-    const productDesc = document.getElementById("product-description");
-    const productPrice = document.getElementById("product-price");
-    const productImage = document.getElementById("product-image");
+    dropdownBtn.addEventListener("click", () => {
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
 
-    const redBtn = document.getElementById("red-btn");
-    const blueBtn = document.getElementById("blue-btn");
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        dropdownBtn.textContent = item.textContent;
+        dropdown.style.display = "none";
+      });
+    });
 
-    function updateProduct(variant) {
-      const p = variants[variant];
-      productName.textContent = p.name;
-      productDesc.textContent = p.description;
-      productPrice.textContent = `$${p.price}`;
-      productImage.src = p.image;
-      productImage.alt = p.name;
+    searchInput.addEventListener("input", () => {
+      const filter = searchInput.value.toLowerCase();
+      items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(filter) ? "flex" : "none";
+      });
+    });
 
-      // Button styling
-      if (variant === "red") {
-        redBtn.classList.add("bg-red-500", "text-white");
-        redBtn.classList.remove("border", "border-gray-400", "text-gray-700");
-
-        blueBtn.classList.remove("bg-blue-500", "text-white");
-        blueBtn.classList.add("border", "border-gray-400", "text-gray-700");
-      } else {
-        blueBtn.classList.add("bg-blue-500", "text-white");
-        blueBtn.classList.remove("border", "border-gray-400", "text-gray-700");
-
-        redBtn.classList.remove("bg-red-500", "text-white");
-        redBtn.classList.add("border", "border-gray-400", "text-gray-700");
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".dropdown")) {
+        dropdown.style.display = "none";
       }
-    }
-
-    redBtn.addEventListener("click", () => updateProduct("red"));
-    blueBtn.addEventListener("click", () => updateProduct("blue"));
+    });
   </script>
+
+  <footer>
+
+<!-- Elfsight Timeline | Timeline: Flex Container Fixed (WIDGETS-3947) -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-dc8d2281-f493-47fe-a167-deb7cd119dbe" data-elfsight-app-lazy></div>
+
+  </footer>
 </body>
 </html>
