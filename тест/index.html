@@ -125,6 +125,26 @@
 
 </head>
 <body>
+  <style>
+  .page-wrapper {
+    height: 100dvh;
+    transition: height 0.4s ease;
+  }
+
+  body.after-load .page-wrapper {
+    height: 130dvh; /* имитация прыжка высоты */
+  }
+</style>
+
+<script>
+  // ИМИТАЦИЯ изменения высоты viewport во время загрузки
+  setTimeout(() => {
+    document.body.classList.add("after-load");
+  }, 300);
+</script>
+
+<div class="page-wrapper">
+
   <header>
     <h1>Салон красоты «Прекрасная жизнь»</h1>
   </header>
@@ -208,11 +228,16 @@
   </script>
 
   <footer>
-<!-- Elfsight Form Builder | Form Builder (WIDGETS-1304) -->
+<!-- Elfsight Back to Top | Back to Top: prod -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-f515d350-5353-41f9-b2cc-a763a132d757" data-elfsight-app-lazy></div>
+<div class="elfsight-app-b02726e0-b391-4e9c-bb57-6c0863005be2" data-elfsight-app-lazy></div>
 
   </footer>
+
+  </div> <!-- end of page-wrapper -->
+
 </body>
+
+  
 </html>
 
