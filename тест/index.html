@@ -4,208 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Салон красоты</title>
-
-  <!-- ===== Плавное изменение dvh и стресс-тест ===== -->
   <style>
-    /* Контейнер для плавного изменения dvh */
-    .viewport-wrapper {
-      height: 100dvh;
-      transition: height 0.4s ease;
-      overflow: hidden;
+    /* Общие стили */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
     }
-
-    body.after-vh-change .viewport-wrapper {
-      height: 130dvh; /* плавный “прыжок” */
-      overflow: visible;
+    /* Лоадер */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100dvh;
+      background-color: #d63384;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 1.5rem;
+      z-index: 1000;
+    }
+    /* Контент скрыт до загрузки */
+    #content {
+      display: none;
+    }
+    /* Контейнер и секции */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1rem;
+    }
+    header {
+      background: #d63384;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #f8f9fa;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h2 {
+      margin-top: 2rem;
+      color: #d63384;
     }
   </style>
-
 </head>
 <body>
 
-<div class="viewport-wrapper"> <!-- обёртка для изменения высоты -->
-
-<header>
-  <h1>Салон красоты «Прекрасная жизнь»</h1>
-</header>
-
-<nav>
-  <a href="#services">Услуги</a>
-  <a href="#news">Новости</a>
-  <a href="#contact">Запись</a>
-</nav>
-
-<div class="container">
-  <section id="services">
-    <h2>Наши услуги</h2>
-    <p>Мы предлагаем широкий спектр услуг: парикмахерские услуги, маникюр и педикюр, уход за лицом и телом, спа-процедуры и многое другое.</p>
-    <p><strong>Парикмахерские услуги:</strong> стильные стрижки, окрашивание, укладки для любого случая.</p>
-    <p><strong>Маникюр и педикюр:</strong> классический, аппаратный, покрытие гель-лаком, дизайн ногтей.</p>
-    <p><strong>Косметология:</strong> уходовые процедуры, массажи, пилинги, омолаживающие программы.</p>
-    <p><strong>Спа:</strong> релаксирующие программы, арома-массажи и обертывания.</p>
-  </section>
-
-  <section id="news">
-    <h2>Новости (flex-container)</h2>
-    <p><em>15 сентября:</em> Открытие нового зала для спа-процедур с современным оборудованием.</p>
-    <p><em>1 октября:</em> Скидка 20% на окрашивание волос для новых клиентов.</p>
-    <p><em>10 октября:</em> Бесплатная консультация косметолога при записи на процедуру ухода за лицом.</p>
-  </section>
-
+<!-- Лоадер -->
+<div id="loader">
+  <div class="spinner"></div>
+  <div>Сайт загружается...</div>
 </div>
 
-<footer>
-<!-- Elfsight Back to Top | Back to Top: prod -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-b02726e0-b391-4e9c-bb57-6c0863005be2" data-elfsight-app-lazy></div>
-</footer>
+<!-- Основной контент -->
+<div id="content">
+  <header>
+    <h1>Салон красоты «Прекрасная жизнь»</h1>
+  </header>
 
-</div> <!-- конец viewport-wrapper -->
+  <nav>
+    <a href="#services">Услуги</a>
+    <a href="#news">Новости</a>
+    <a href="#contact">Запись</a>
+  </nav>
 
-<!-- ===== Скрипты ===== -->
+  <div class="container">
+    <section id="services">
+      <h2>Наши услуги</h2>
+      <p>Мы предлагаем широкий спектр услуг: парикмахерские услуги, маникюр и педикюр, уход за лицом и телом, спа-процедуры и многое другое.</p>
+    </section>
+
+    <section id="news">
+      <h2>Новости</h2>
+      <p><em>15 сентября:</em> Открытие нового зала для спа-процедур с современным оборудованием.</p>
+      <p><em>1 октября:</em> Скидка 20% на окрашивание волос для новых клиентов.</p>
+      <p><em>10 октября:</em> Бесплатная консультация косметолога при записи на процедуру ухода за лицом.</p>
+    </section>
+  </div>
+
+  <footer>
+    <!-- Elfsight Back to Top -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-b02726e0-b391-4e9c-bb57-6c0863005be2" data-elfsight-app-lazy></div>
+  </footer>
+</div>
+
 <script>
-  // ===== 1. Плавное изменение dvh =====
-  document.addEventListener("DOMContentLoaded", () => {
+  // Имитация загрузки страницы
+  window.addEventListener('load', () => {
     setTimeout(() => {
-      document.body.classList.add("after-vh-change");
-    }, 400);
-  });
-
-  // ===== 2. Визуально заметные скачки =====
-  function triggerHeightJumps() {
-    let jumps = 0;
-    const interval = setInterval(() => {
-      if (jumps % 2 === 0) {
-        document.body.style.minHeight = "300vh"; // большой прыжок
-      } else {
-        document.body.style.minHeight = "100vh"; // обратно
-      }
-      jumps++;
-      if (jumps > 8) {
-        clearInterval(interval);
-        document.body.style.minHeight = ""; // вернуть как было
-      }
-    }, 300);
-  }
-  window.addEventListener("load", () => {
-    setTimeout(triggerHeightJumps, 1000);
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    }, 1500); // задержка 1.5 сек для демонстрации лоадера
   });
 </script>
 
-<style>
-  /* Основные стили страницы */
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: normal;
-  }
-  header {
-    background: #d63384;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-  }
-  nav {
-    background: #f8f9fa;
-    padding: 1rem;
-    text-align: center;
-  }
-  nav a {
-    margin: 0 10px;
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 1rem;
-  }
-  h2 {
-    margin-top: 2rem;
-    color: #d63384;
-  }
-  form {
-    margin-top: 2rem;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: #fdfdfd;
-  }
-  input, button {
-    padding: 10px;
-    margin: 5px 0;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  button {
-    background: #d63384;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  button:hover {
-    background: #a61e5c;
-  }
-  .dropdown {
-    position: relative;
-    width: 100%;
-    margin-bottom: 10px;
-    font-family: sans-serif;
-  }
-  .dropdown button {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background: #fff;
-    text-align: left;
-    cursor: pointer;
-  }
-  .dropdown button:after {
-    content: "▼";
-    float: right;
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    background: #fff;
-    z-index: 100;
-  }
-  .dropdown-content input {
-    width: 95%;
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #ccc;
-  }
-  .dropdown-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .dropdown-content li {
-    padding: 8px 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-  }
-  .dropdown-content li:hover {
-    background: #f0f0f0;
-  }
-  .flag {
-    margin-right: 8px;
-  }
-  @media (max-width: 600px) {
-    nav a {
-      display: block;
-      margin: 5px 0;
-    }
-  }
-</style>
-
 </body>
 </html>
+
