@@ -4,6 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Салон красоты</title>
+
+  <!-- ИМИТАЦИЯ ИЗМЕНЕНИЯ ВЫСОТЫ dVH -->
+  <style>
+    .viewport-wrapper {
+      height: 100dvh;
+      transition: height 0.4s ease;
+      overflow: hidden;
+    }
+    body.after-vh-change .viewport-wrapper {
+      height: 130dvh; /* тут имитация "прыжка" */
+      overflow: visible;
+    }
+  </style>
+
+  <script>
+    // Изменяем высоту после загрузки
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        document.body.classList.add("after-vh-change");
+      }, 400);
+    });
+  </script>
+
   <style>
     body {
       margin: 0;
@@ -113,7 +136,6 @@
       margin-right: 8px;
     }
 
-
     /* Responsive */
     @media (max-width: 600px) {
       nav a {
@@ -122,28 +144,11 @@
       }
     }
   </style>
-
 </head>
+
 <body>
-  <style>
-  .page-wrapper {
-    height: 100dvh;
-    transition: height 0.4s ease;
-  }
 
-  body.after-load .page-wrapper {
-    height: 130dvh; /* имитация прыжка высоты */
-  }
-</style>
-
-<script>
-  // ИМИТАЦИЯ изменения высоты viewport во время загрузки
-  setTimeout(() => {
-    document.body.classList.add("after-load");
-  }, 300);
-</script>
-
-<div class="page-wrapper">
+<div class="viewport-wrapper"> <!-- ← ОБЁРТКА ДОБАВЛЕНА -->
 
   <header>
     <h1>Салон красоты «Прекрасная жизнь»</h1>
@@ -228,16 +233,12 @@
   </script>
 
   <footer>
-<!-- Elfsight Back to Top | Back to Top (WIDGETS-4109) -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-abd26229-450b-42b5-b86f-4596d3fb0864" data-elfsight-app-lazy></div>
-
+    <!-- Elfsight Back to Top -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-abd26229-450b-42b5-b86f-4596d3fb0864" data-elfsight-app-lazy></div>
   </footer>
 
-  </div> <!-- end of page-wrapper -->
+</div> <!-- конец viewport-wrapper -->
 
 </body>
-
-  
 </html>
-
