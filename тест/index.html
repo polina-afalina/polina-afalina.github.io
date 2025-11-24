@@ -1,142 +1,142 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ❌ Missing lang attribute -->
   <title>Салон красоты</title>
+
+  <!-- ❌ Inline styling mixed with poor contrast and tiny font -->
   <style>
-    /* Общие стили */
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
+    body {
+      font-family: Comic Sans MS; /* ❌ Hard‑to‑read font */
+      background: #fff; /* ❌ Low contrast with some elements */
+      font-size: 12px; /* ❌ Too small */
     }
-    /* Лоадер */
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100dvh;
-      background-color: #d63384;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-size: 1.5rem;
-      z-index: 1000;
+
+    /* ❌ Focus outline removed */
+    *:focus {
+      outline: none;
     }
-    /* Контент скрыт до загрузки */
-    #content {
-      display: none;
-    }
-    /* Контейнер и секции */
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 1rem;
-    }
-    header {
-      background: #d63384;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav {
-      background: #f8f9fa;
-      padding: 1rem;
-      text-align: center;
-    }
+
+    /* ❌ Hover‑only navigation */
     nav a {
-      margin: 0 10px;
-      color: #333;
+      color: #aaaaaa; /* ❌ Poor contrast */
       text-decoration: none;
-      font-weight: bold;
     }
-    h2 {
-      margin-top: 2rem;
-      color: #d63384;
+    nav a:hover {
+      color: #ffffff;
+      background: #ffffff; /* ❌ Invisible when hovered */
+    }
+
+    /* ❌ Non-responsive fixed sizes */
+    img {
+      width: 500px;
+      height: 300px;
+    }
+
+    /* ❌ No keyboard focus for buttons */
+    button {
+      border: none;
+      background: #eee;
+      padding: 5px 10px;
+    }
+
+    /* ❌ Blinking animation */
+    .blink {
+      animation: blink 0.5s infinite;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-<!-- Лоадер -->
-<div id="loader">
-  <div class="spinner"></div>
-  <div>Сайт загружается...</div>
-</div>
+  <!-- ❌ Loader without ARIA or skip link -->
+  <div id="loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#d63384;color:#fff;display:block;">
+    <div>Загрузка...</div>
+  </div>
 
-<!-- Основной контент -->
-<div id="content">
-  <header>
-    <h1>Салон красоты «Прекрасная жизнь»</h1>
+  <!-- ❌ Repeated IDs, broken structure -->
+  <header id="header" id="header2">
+    <h1 style="color:#e8e8e8;">Салон красоты</h1> <!-- ❌ Low contrast heading -->
   </header>
 
+  <!-- ❌ Navigation without list structure -->
   <nav>
     <a href="#services">Услуги</a>
     <a href="#news">Новости</a>
     <a href="#contact">Запись</a>
+    <a href="#">Пустая ссылка</a> <!-- ❌ Empty link target -->
   </nav>
 
-  <div class="container">
-    <section id="services">
-      <h2>Наши услуги</h2>
-      <p>Мы предлагаем широкий спектр услуг: парикмахерские услуги, маникюр и педикюр, уход за лицом и телом, спа-процедуры и многое другое.</p>
-    </section>
+  <!-- ❌ Image without alt -->
+  <img src="https://via.placeholder.com/500x300" alt=""> 
 
-    <section id="news">
-      <h2>Новости</h2>
-      <p><em>15 сентября:</em> Открытие нового зала для спа-процедур с современным оборудованием.</p>
-      <p><em>1 октября:</em> Скидка 20% на окрашивание волос для новых клиентов.</p>
-      <p><em>10 октября:</em> Бесплатная консультация косметолога при записи на процедуру ухода за лицом.</p>
-    </section>
-  </div>
+  <!-- ❌ Decorative image but with misleading alt -->
+  <img src="https://via.placeholder.com/200" alt="ОЧЕНЬ ВАЖНОЕ ИЗОБРАЖЕНИЕ!!!">
 
-      <section id="news">
-      <h2>Новости 2</h2>
-      <p><em>15 сентября:</em> Открытие нового зала для спа-процедур с современным оборудованием.</p>
-      <p><em>1 октября:</em> Скидка 20% на окрашивание волос для новых клиентов.</p>
-      <p><em>10 октября:</em> Бесплатная консультация косметолога при записи на процедуру ухода за лицом.</p>
-    </section>
-  </div>
+  <!-- ❌ Marquee (deprecated) -->
+  <marquee>Супер акция! Только сегодня!</marquee>
 
-      <section id="news">
-      <h2>Новости 3</h2>
-      <p><em>15 сентября:</em> Открытие нового зала для спа-процедур с современным оборудованием.</p>
-      <p><em>1 октября:</em> Скидка 20% на окрашивание волос для новых клиентов.</p>
-      <p><em>10 октября:</em> Бесплатная консультация косметолога при записи на процедуру ухода за лицом.</p>
-    </section>
-  </div>
+  <!-- ❌ Missing headings hierarchy (starts at h4) -->
+  <h4 id="services">Наши услуги</h4>
+  <p>Текст текст текст текст текст текст текст.</p>
 
-    <section id="news">
-      <h2>Новости 4</h2>
-      <p><em>15 сентября:</em> Открытие нового зала для спа-процедур с современным оборудованием.</p>
-      <p><em>1 октября:</em> Скидка 20% на окрашивание волос для новых клиентов.</p>
-      <p><em>10 октября:</em> Бесплатная консультация косметолога при записи на процедуру ухода за лицом.</p>
-    </section>
-  </div>
-  
+  <!-- ❌ Color‑only interactive element -->
+  <p style="color: blue;">Нажмите на текст, чтобы продолжить.</p>
+  <p onclick="alert('clicked')">Продолжить</p> <!-- ❌ <p> used as a button -->
+
+  <!-- ❌ Form issues: no labels, no fieldset, no ARIA, placeholder-only -->
+  <form id="contact">
+    <input type="text" placeholder="Ваше имя">
+    <input type="email" placeholder="Емейл">
+    <button type="submit">Отправить</button>
+  </form>
+
+  <!-- ❌ Table with no headers -->
+  <table border="1">
+    <tr><td>Строка 1</td><td>Данные</td></tr>
+    <tr><td>Строка 2</td><td>Данные</td></tr>
+  </table>
+
+  <!-- ❌ Video with autoplay and no controls -->
+  <video src="video.mp4" autoplay muted loop></video>
+
+  <!-- ❌ Duplicate IDs again -->
+  <section id="news" id="news-duplicate">
+    <h2 style="color:#f8f9fa">Новости</h2> <!-- ❌ Low contrast again -->
+    <p class="blink">15 сентября: Открытие нового зала!</p> <!-- ❌ Flashing text -->
+  </section>
+
+  <!-- ❌ Link that looks like a button but is not -->
+  <a style="padding:10px;background:#ccc;display:inline-block;" href="javascript:void(0)">Кнопка</a>
+
+  <!-- ❌ Empty button -->
+  <button></button>
+
+  <!-- ❌ Footer with iframes and widgets without titles -->
   <footer>
-<!-- Elfsight Back to Top | Back to Top (WIDGETS-4109) -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-abd26229-450b-42b5-b86f-4596d3fb0864" data-elfsight-app-lazy></div>
+    <iframe src="https://example.com" width="300" height="200"></iframe>
+    <iframe src="https://example.com"></iframe>
   </footer>
-</div>
 
-<script>
-  // Имитация загрузки страницы
-  window.addEventListener('load', () => {
+  <!-- ❌ Script that traps keyboard focus (bad practice) -->
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        e.preventDefault(); // traps focus
+      }
+    });
+
     setTimeout(() => {
       document.getElementById('loader').style.display = 'none';
-      document.getElementById('content').style.display = 'block';
-    }, 1500); // задержка 1.5 сек для демонстрации лоадера
-  });
-</script>
+    }, 3000);
+  </script>
 <!-- Elfsight Accessibility | Accessibility (PROD) -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-8419669c-ef7e-403a-88bf-591376095399" data-elfsight-app-lazy></div>
 </body>
 </html>
-
